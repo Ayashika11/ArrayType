@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	int arrayLength,elements,even=0,odd=0;
+	int arrayLength,elements,even=0,odd=0,typeCheck;
 	Scanner sc = new Scanner(System.in);
 	arrayLength = sc.nextInt();
 	for(int index=0;index<arrayLength;index++)
@@ -16,15 +16,17 @@ public class Main {
         else
             odd++;
     }
-	System.out.println("The array is "+ checkArrayType(arrayLength,even,odd));
+	String[] typesOfArray = new String[] {"Even","Odd","Mixed"};
+	typeCheck = checkArrayType(arrayLength,even,odd);
+	System.out.println("The array is "+ typesOfArray[typeCheck-1]);
     }
 
-    private static String checkArrayType(int arrayLength, int even, int odd) {
+    private static int checkArrayType(int arrayLength, int even, int odd) {
         if(even==arrayLength)
-            return "Even";
+            return 1;
         else if(odd==arrayLength)
-            return "Odd";
+            return 2;
         else
-            return "Mixed";
+            return 3;
     }
 }
